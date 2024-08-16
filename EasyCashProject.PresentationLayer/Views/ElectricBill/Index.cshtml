@@ -1,0 +1,224 @@
+﻿@{
+    ViewData["Title"] = "Fatura Ödeme";
+    Layout = "~/Views/CustomerLayout/Index.cshtml";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.min.css" rel="stylesheet">
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Fatura Ödeme Sayfası</h3>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Elektrik Faturası</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <p>Elektrik faturası ödeme ekranı. Aşağıdaki panele bilgilerinizi girip fatura sorgula butonuna tıklayınız.</p>
+                        <div id="wizard" class="form_wizard wizard_horizontal">
+                            <ul class="wizard_steps">
+                                <li>
+                                    <a href="#step-1">
+                                        <span class="step_no">1</span>
+                                        <span class="step_descr">
+                                            Adım 1<br />
+                                            <small>Fatura ve Kullanıcı Bilgileri</small>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#step-2">
+                                        <span class="step_no">2</span>
+                                        <span class="step_descr">
+                                            Adım 2<br />
+                                            <small>Borç Görüntüleme Ekranı</small>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#step-3">
+                                        <span class="step_no">3</span>
+                                        <span class="step_descr">
+                                            Adım 3<br />
+                                            <small>Ödeme İşlemi</small>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#step-4">
+                                        <span class="step_no">4</span>
+                                        <span class="step_descr">
+                                            Adım 4<br />
+                                            <small>İşlem Detayı</small>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="step-1">
+                                <form id="step1-form" class="form-horizontal form-label-left">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Abone Adı Soyadı <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="name" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="contract-number">Sözleşme Numarası <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="number" id="contract-number" name="contract-number" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="query-debt">Borç Sorgula</button>
+                                </form>
+                            </div>
+
+                            <div id="step-2" style="display:none;">
+                                <h2 class="StepTitle">Abonelik Borç Detayları</h2>
+                                <form id="step2-form" class="form-horizontal form-label-left">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="debt-name">Abone Adı Soyadı <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="debt-name" readonly value="@ViewBag.CustomerName" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="debt-contract-number">Sözleşme Numarası <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="number" id="debt-contract-number" name="debt-contract-number" readonly value="@ViewBag.ContractNumber" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="debt-amount">Borç Tutarı <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="debt-amount" name="debt-amount" readonly class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="next-to-payment">Devam Et</button>
+                                </form>
+                            </div>
+                            <div id="step-3" style="display:none;">
+                                <h2 class="StepTitle">Ödeme Adımı</h2>
+                                <form id="step3-form" class="form-horizontal form-label-left">
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="card-name">Kart Sahibi Adı Soyadı <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="card-name" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="card-number">Kart Numarası <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="number" id="card-number" name="card-number" required="required" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="expiry-date">Son Kullanma Tarihi <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="text" id="expiry-date" name="expiry-date" required="required" pattern="[0-9]{2}/[0-9]{2}" placeholder="18/26" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="cvc">3 Haneli CVC <span class="required">*</span></label>
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <input type="number" id="cvc" name="cvc" required="required" pattern="[0-9]{3}" class="form-control col-md-7 col-xs-12">
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-dark" id="complete-payment">Ödemeyi Tamamla</button>
+                                </form>
+                            </div>
+                            <div id="step-4" style="display:none; text-align:center; margin-left:4em; margin-right:4em;" class="alert alert-success" role="alert">
+                                <h2 class="StepTitle">Ödeme Sonucu</h2>
+                                <p id="payment-result"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.12.3/dist/sweetalert2.all.min.js"></script>
+<script>
+    // Borc Sorgula butonuna tiklandiginda
+    $(document).ready(function () {
+        $('#query-debt').click(function () {
+
+            var contractNumber = $('#contract-number').val();
+            var name = $('#name').val();
+      
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("QueryDebt", "ElectricBill")',
+                data: { contractNumber: contractNumber, customerName: name },
+                success: function (response) { // Controller'dan geri donen response
+                    if (response.success) {
+                        $('#debt-name').val(name);
+                        $('#debt-contract-number').val(contractNumber);
+                        $('#debt-amount').val(response.debtAmount);
+
+                        $('#step-1').hide();
+                        $('#step-2').show();
+                    } 
+                    else { // Eger borc yoksa veya odenmisse(durumu True ise)
+                        Swal.fire({
+                            title: "Harika!",
+                            text: response.message, // Controller tarafindan Json icerisinde dondurdugumuz mesaj
+                            icon: "success",
+                            confirmButtonText: "Tamam"
+                        });
+                       // alert(response.message);
+                    }
+                },
+                error: function () {
+                    alert('Hata oluştu, lütfen tekrar deneyin.');
+                }
+            });
+        });
+
+        // Devam et butonuna tiklandiginda 2. adimi sakla ve 3. adimi ac
+        $('#next-to-payment').click(function () {
+            $('#step-2').hide();
+            $('#step-3').show();
+        });
+
+        // Odemeyi tamamla butonuna tiklandiginda
+        $('#complete-payment').click(function () {
+            var name = $('#debt-name').val();
+            var contractNumber = $('#debt-contract-number').val();
+            var cardName = $('#card-name').val();
+            var cardNumber = $('#card-number').val();
+            var expiryDate = $('#expiry-date').val();
+            var cvc = $('#cvc').val();
+
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("CompletePayment", "ElectricBill")',
+                data: { name: name, contractNumber: contractNumber, cardName: cardName, cardNumber: cardNumber, expiryDate: expiryDate, cvc: cvc },
+                success: function (response) {
+                    if (response.success) {
+                        $('#step-3').hide();
+                        $('#step-4').show();
+                        $('#payment-result').text('Ödeme başarılı. Teşekkür ederiz!');
+                    } 
+                    else {
+                        alert('Ödeme işlemi başarısız.');
+                    }
+                },
+                error: function () {
+                    alert('Hata oluştu, lütfen tekrar deneyin.');
+                }
+            });
+        });
+    });
+</script>

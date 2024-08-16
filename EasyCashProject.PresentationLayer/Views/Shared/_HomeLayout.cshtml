@@ -1,0 +1,291 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Easy Cash - Ana Sayfa</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords" content="Repay Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!-- Custom-Files -->
+    <link rel="stylesheet" href="~/web/css/bootstrap.css">
+    <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="~/web/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/web/css/slider.css" type="text/css" media="all" />
+    <!-- Style-CSS -->
+    <!-- font-awesome-icons -->
+    <link href="~/web/css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <!-- /Fonts -->
+    <link href="//fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800" rel="stylesheet">
+
+    <!-- //Fonts -->
+</head>
+
+<body>
+    <!-- mian-content -->
+    <div class="main-w3-pvt-header-sec" id="home">
+
+        <!-- header -->
+        <header>
+            <div class="container">
+                <div class="header d-lg-flex justify-content-between align-items-center py-lg-3 px-lg-3">
+                    <!-- logo -->
+                    <div id="logo">
+                        <h1><a href="#"><span class="fa fa-recycle mr-2"></span>EasyCash</a></h1>
+                    </div>
+                    <!-- //logo -->
+                    <div class="w3pvt-bg">
+                        <!-- nav -->
+                        <div class="nav_w3pvt">
+                            <nav>
+                                <label for="drop" class="toggle">Menü</label>
+                                <input type="checkbox" id="drop" />
+                                <ul class="menu">
+                                    <li class="active"><a href="#">Ana Sayfa</a></li>
+                                    <li><a href="#">Hakkımızda</a></li>
+                                    <li><a href="#">Hizmetlerimiz</a></li>
+                                    @*  <li>
+                                    <!-- First Tier Drop Down -->
+                                    <label for="drop-2" class="toggle toogle-2">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span>
+                                    </label>
+                                    <a href="#">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+                                    <input type="checkbox" id="drop-2" />
+                                    <ul>
+
+                                    <li><a href="#process" class="drop-text">İşlemler</a></li>
+
+                                    <li><a href="#stats" class="drop-text">İstatistikler</a></li>
+                                    <li><a href="#services" class="drop-text">Servisler</a></li>
+                                    <li><a href="about.html" class="drop-text">Ekibimiz</a></li>
+                                    <li><a href="#test" class="drop-text">Müşterilerimiz</a></li>
+                                    </ul>
+                                    </li> *@
+                                    <li><a asp-controller="Contact" asp-action="Index">İletişim</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!-- //nav -->
+                        <div class="justify-content-center">
+                            <!-- search -->
+                            <div class="apply-w3-pvt ml-lg-3">
+                                <a class="btn read" asp-controller="Login" asp-action="Index" role="button">Giriş Yap</a>
+                            </div>
+                            <!-- //search -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- //header -->
+@*     </div> *@
+        @RenderBody()
+
+        <!-- footer -->
+        <footer class="footer-content py-5">
+            <div class="container py-md-3">
+                <div class="footer-top text-center">
+                    <h2>
+                        <a class="navbar-brand pt-3 mb-5" href="#">
+                            <span class="fa fa-recycle"></span> EasyCash
+                        </a>
+                    </h2>
+                </div>
+                <div class="row footer-top-inner-w3-pvt">
+                    <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                        <div class="footer-wthree">
+                            <h3 class="mb-3 wthree_title">Linkler</h3>
+                            <hr>
+                            <ul class="list-info-wthree">
+                                <li>
+                                    <a href="about.html">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Our Mission
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Latest Posts
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Explore
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="contact.html">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Find us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                        <div class="footer-wthree">
+                            <h3 class="mb-3 wthree_title">Navigasyon</h3>
+                            <hr>
+                            <ul class="list-info-wthree">
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Home
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        About Us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Single Page
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Team
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Contact" asp-action="Index">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Contact Us
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                        <div class="footer-wthree">
+                            <h3 class="mb-3 wthree_title">Müşteri Hizmetleri</h3>
+                            <hr>
+                            <ul class="list-info-wthree">
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Our Mission
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Latest Posts
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                    <a href="#">
+                                        Explore
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Contact" asp-action="Index">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Find us
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="fa fa-angle-double-right" aria-hidden="true"></span>
+                                        Privacy Policy
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 mt-lg-0 mt-4">
+                        <div class="footer-wthree">
+                            <h3 class="mb-3 wthree_title">Bize Ulaşın</h3>
+                            <hr>
+                            <div class="last-w3-pvt-contact">
+                                <p>
+                                    <a href="mailto:example@email.com">info@example.com</a>
+                                </p>
+                            </div>
+                            <div class="last-w3-pvt-contact my-2">
+                                <p>+ 456 123 7890</p>
+                            </div>
+                            <div class="last-w3-pvt-contact">
+                                <p>
+                                    + 90 nsequursu dsdesdc,
+                                    <br>xxx Honey Street 049436.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <!-- //footer bottom -->
+        </footer>
+        <!-- //footer -->
+        <div class="copy-right">
+            <div class="container">
+                <div class="row">
+                    <p class="copy-right-grids text-md-left text-center my-sm-4 my-4 col-md-6">
+                        © @DateTime.Now.Year EasyCash. Tüm Hakları Saklıdır | Design by
+                        <a href="http://w3layouts.com/"> W3layouts </a>
+                    </p>
+                    <div class="w3-pvt-footer text-md-right text-center mt-4 col-md-5">
+                        <ul class="list-unstyled w3-pvt-icons">
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-facebook-f"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-twitter"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-dribbble"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="fa fa-vk"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="move-top text-right col-md-1"><a href="#home" class="move-top"> <span class="fa fa-angle-up  mb-3" aria-hidden="true"></span></a></div>
+
+                </div>
+            </div>
+        </div>
+ 
+</body>
+
+</html>

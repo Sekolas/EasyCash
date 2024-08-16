@@ -1,0 +1,62 @@
+﻿@model CreateContactDto
+
+@{
+    ViewData["Title"] = "İletişim";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="main-w3-pvt-header-sec page-w3pvt-inner" id="home">
+    <div class="overlay-innerpage">
+        <header>
+            <div class="container">
+                <div class="header d-lg-flex justify-content-between align-items-center py-lg-3 px-lg-3">
+
+                   
+                </div>
+            </div>
+        </header>
+       
+    </div>
+</div>
+<section class="content-info py-5">
+    <div class="container py-md-5">
+        <div class="text-center px-lg-5">
+            <h3 class="title-w3ls mb-5">Bize Ulaşın</h3>
+            <div class="title-desc text-center px-lg-5">
+                <p class="px-lg-5 sub-vj">
+                    Bize ulaşmak için mesaj atın. Mümkün olan en kısa sürede dönüş yapıyor olacağız :))
+                </p>
+            </div>
+        </div>
+        <div class="contact-w3ls-form mt-5">
+            <form class="w3-pvt-contact-fm" method="post">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Adınız</label>
+                            <input asp-for="@Model.Name" class="form-control" type="text" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>Soyadınız</label>
+                            <input asp-for="@Model.Surname" class="form-control" type="text" placeholder="" required="">
+                        </div>
+                        <div class="form-group">
+                            <label>E-Mail</label>
+                            <input asp-for="@Model.EMail" class="form-control" type="email" placeholder="" required="">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label>Mesajınız</label>
+                            <textarea asp-for="@Model.Message" class="form-control" placeholder="" required=""></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group mx-auto mt-3">
+                        <button type="submit" class="btn submit">Gönder</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</section>

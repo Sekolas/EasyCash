@@ -1,0 +1,57 @@
+﻿@model List<ListNotificationDto>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/CustomerLayout/Index.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_title">
+                            <h2>Bildirimler</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                                <li>
+                                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li>
+                                    <a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="x_content">
+                            <div class="table-responsive">
+                                <table class="table table-striped jambo_table bulk_action">
+                                    <thead>
+                                        <tr class="headings">
+                                            <th class="column-title">Başlık </th>
+                                            <th class="column-title">İçerik</th>
+                                            <th class="column-title">Oluşturulma Tarihi </th>
+                                            <th class="column-title">Detay</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr class="even pointer">
+                                                <td class=" ">@item.Title</td>
+                                                <td class=" ">@item.Content</td>
+                                                <td class=" ">@item.CreatedDate.ToShortDateString() </td>
+                                                <td class=" "><a data-itemid="@item.ID" asp-controller="Notification" asp-action="GetById" asp-route-notificationId="@item.ID" class="btn btn-primary"> Detay</a></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

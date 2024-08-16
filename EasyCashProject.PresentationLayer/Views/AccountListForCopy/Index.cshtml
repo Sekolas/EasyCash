@@ -1,0 +1,77 @@
+﻿@model List<CustomerAccount>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/CustomerLayout/Index.cshtml";
+}
+
+<div class="right_col" role="main">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Iban ve Hesap Bilgileri</h3>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="x_panel">
+                                    <div class="x_title">
+                                        <h2>Hesap Numaraları</h2>
+                                        <ul class="nav navbar-right panel_toolbox">
+                                            <li>
+                                                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="close-link"><i class="fa fa-close"></i></a>
+                                            </li>
+                                        </ul>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="x_content bs-example-popovers">
+                                        @foreach (var item in Model)
+                                        {
+                                            <div class="alert alert-success alert-dismissible fade in" role="alert" style="font-size:18px;">
+                                                <strong style="font-size:18px;">Hesap Döviz Türü: @item.CustomerAccountCurrency</strong>
+                                                <br />
+                                                Banka: @item.BankBranch - Hesap No: @item.CustomerAccountNumber
+                                                <div class="input-group">
+                                                    <input type="text" id="iban-@item.CustomerAccountNumber" class="form-control" value="@item.CustomerAccountNumber" readonly>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-default" type="button" onclick="copyIban('@item.CustomerAccountNumber')">Iban Kopyala</button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyIban(accountNumber) {
+        // IBAN input elementini sec
+        var ibanInput = document.getElementById('iban-' + accountNumber);
+
+        // Input alanindaki metni sec ve kopyala
+        ibanInput.select();
+        ibanInput.setSelectionRange(0, 99999); // Mobil cihazlar icin
+
+        document.execCommand('copy'); // Kopyalama komutunu calistir
+
+        alert('IBAN kopyalandı: ' + ibanInput.value); // Kopyalandigini gostermek icin bir mesaj goruntule
+    }
+</script>

@@ -1,0 +1,130 @@
+﻿﻿<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="#" class="site_title"><i class="fa fa-paw"></i> <span>Easy Cash</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- menu profile quick info -->
+        <div class="profile clearfix">
+            <div class="profile_pic">
+                <img src="~/user.png" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+                <span>Müşteri Paneli</span>
+                <h2>Hoş Geldin @ViewBag.loginUserName</h2>
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
+
+        <br />
+
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+                <h3>Menüler</h3>
+                <ul class="nav side-menu">
+                    <li>
+                        <a asp-controller="Dashboard" asp-action="Index"><i class="fa fa-home"></i> Dashboard</a>
+                    @*     <ul class="nav child_menu">
+                            <li><a href="#">Dashboard</a></li>
+                        </ul> *@
+                    </li>
+                    <li>
+                        <a><i class="fa fa-edit"></i> Hesap İşlemleri <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a asp-controller="MyLastProcess" asp-action="Index">Son İşlemlerim</a></li>
+                            <li><a asp-controller="QRCode" asp-action="Index">QR Kodu Oluştur</a></li>
+                            <li><a asp-controller="AccountListForCopy" asp-action="Index">Iban Bilgisi Paylaş</a></li>
+                            <li><a href="#">Hesaplarım Arası Transfer</a></li>
+                            <li><a href="#">Cebe Havale</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-desktop"></i> Hesaplarım <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a asp-controller="CustomerAccount" asp-action="Index">Tüm Hesaplarım</a></li>
+                            <li><a asp-controller="CustomerAccount" asp-action="CreateAccount">Yeni Hesap Aç</a></li>
+                            <li><a href="#">Kredi Hesaplarım</a></li>
+                            <li><a asp-controller="CustomerAccount" asp-action="GetCustomerUSDAccountsList">Dolar Hesaplarım</a></li>
+                            <li><a asp-controller="CustomerAccount" asp-action="GetCustomerEURAccountsList">Euro Hesaplarım</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-car"></i> Para Transferleri <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="TL">TL Transfer</a></li>
+                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="USD">Dolar Transfer</a></li>
+                            <li><a asp-controller="SendMoney" asp-action="Index" asp-route-mycurrency="EUR">Euro Transfer</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-table"></i> Ödemeler <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a asp-controller="ElectricBill" asp-action="Index">Fatura Ödeme</a></li>
+                            <li><a href="#">Eğitim Ödemeleri</a></li>
+                            <li><a href="#">Trafik Ödemeleri</a></li>
+                            <li><a href="#">Sınav Ödemeleri</a></li>
+                            <li><a href="#">Sigorta Ödemeleri</a></li>
+                            <li><a href="#">Diğer Ödemeler</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-clone"></i>Krediler <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a asp-controller="CreditCard" asp-action="CreditCartApplication">Kredi Kartı Başvurusu</a></li>
+                            <li><a href="#">Kredi Hesaplarım</a></li>
+                            <li><a href="#">Kredi Ödemeleri</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a><i class="fa fa-bar-chart-o"></i> Döviz ve Altın <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="#">Döviz Kurları</a></li>
+                            <li><a href="#">Döviz İşlemleri</a></li>
+                            <li><a href="#">Altın İşlemleri</a></li>
+                        </ul>
+                    </li>
+               
+                </ul>
+            </div>
+            <div class="menu_section">
+               <hr />
+                <ul class="nav side-menu">
+                    <li>
+                        <a><i class="fa fa-bug"></i> Kartlarım <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a asp-controller="CreditCard" asp-action="Index">Kredi Kartlarım</a></li>
+                            <li><a asp-controller="CustomerAccount" asp-action="Index">Banka Kartlarım</a></li>
+                            <li><a href="#">Sanal Kartlarım</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a asp-controller="MyAccounts" asp-action="Index"><i class="fa fa-cog"></i> Ayarlar </a>
+                    </li>
+                    <li> <a asp-controller="Home" asp-action="Index"><i class="fa fa-arrow-left"></i> Ana Sayfa</a></li>
+                    <li><a asp-controller="Login" asp-action="LogOut"><i class="fa fa-close"></i> Çıkış Yap</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <!-- /sidebar menu -->
+        <!-- /menu footer buttons -->
+        <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Ayarlar" asp-controller="MyAccounts" asp-action="Index">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Tam Ekran">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Çıkış Yap" asp-controller="Login" asp-action="LogOut">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+        </div>
+        <!-- /menu footer buttons -->
+    </div>
+</div>

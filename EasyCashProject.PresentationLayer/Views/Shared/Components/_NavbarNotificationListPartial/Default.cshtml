@@ -1,0 +1,35 @@
+﻿@model List<ListNotificationDto>
+
+<li role="presentation" class="dropdown">
+    <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+        <i class="fa fa-bell-o"></i>
+        <span class="badge bg-green">@Model.Count</span>
+    </a>
+    <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
+        @foreach (var item in Model)
+        {
+            <li>
+                <a data-itemid="@item.ID" asp-controller="Notification" asp-action="GetById" asp-route-notificationId="@item.ID">
+                    <span class="image"><img src="~/user3.png" alt="Profile Image" /></span>
+                    
+                    <span>
+                        <span>@item.Title</span>
+                        <span class="time">@item.CreatedDate.ToShortDateString()</span>
+                    </span>
+                    <span class="message">
+                        @item.Content.Substring(0,30) ...
+                    </span>
+                </a>
+            </li>
+        }
+
+        <li>
+            <div class="text-center">
+                <a asp-controller="Notification" asp-action="Index">
+                    <strong>Tüm Bildirimleri Gör</strong>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </li>
+    </ul>
+</li>
