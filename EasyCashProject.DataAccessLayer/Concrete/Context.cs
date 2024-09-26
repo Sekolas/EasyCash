@@ -13,7 +13,7 @@ namespace EasyCashProject.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-43HIK1B; initial catalog=EasyCashBD; Trusted_Connection=True; TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=LAPTOP-I0QS5ARU; initial catalog=EasyCashBD; Trusted_Connection=True; TrustServerCertificate=True;");
         }
         public DbSet<CustomerAccount> CustomerAccounts { get; set; }
         public DbSet<CustomerAccountProcess> CustomerAccountProcesses { get; set; }

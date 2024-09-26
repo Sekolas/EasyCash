@@ -16,11 +16,16 @@ namespace EasyCashProject.DataAccessLayer.EntityFramework
         public List<CustomerAccountProcess> MyLastProcess(int id)
         {
             using var context = new Context();
+
+            // SenderCustomer ve ReceiverCustomer ile birlikte AppUser ilişkisini dahil ediyoruz
             var values = context.CustomerAccountProcesses
-                .Include(y=>y.SenderCustomer)
+                .Include(y => y.SenderCustomer)
+                    .ThenInclude(s => s.AppUser)
                 .Include(w => w.ReceiverCustomer)
-                .ThenInclude(z=>z.AppUser) // User ve CustomerAccount tablolarini CustomerAccountProcess tablosuna dahil ettik (User bilgilerine ulasabilmek icin)
-                .Where(x => x.ReceiverID == id || x.SenderID == id).ToList(); // Para gonderen veya alan kisi ID'si ile Sisteme login olan kisinin Musteri Hesap ID'si (gelen id degeri) esit ise listeleyecek
+                    .ThenInclude(r => r.AppUser)
+                .Where(x => x.ReceiverID == id || x.SenderID == id)
+                .ToList();
+
             return values;
         }
     }
